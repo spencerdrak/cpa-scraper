@@ -42,9 +42,9 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* Python 3 - The web framework used
+* [Python 3](https://www.python.org/) - Base Language
 * [Docker](https://docs.docker.com/) - Packaging
-* [K8s] (https://kubernetes.io/) - Hosting
+* [K8s](https://kubernetes.io/) - Hosting
 * [Helm](https://helm.sh/docs/) - Deployment
 
 
