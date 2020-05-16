@@ -1,0 +1,17 @@
+curl 'https://scheduling.prometric.com/api/v1/sites/availabilities/?startDate=2020-06-15T00%3A00%3A00&endDate=2020-06-29T00%3A00%3A00&coordinates=38.90071105957031,-77.2527084350586&Take=5&skip=0' \
+  -H 'authority: scheduling.prometric.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ijd2cXJuRlh1S3ZPeFZxckY0OUgzazdnZUNkdyJ9.eyJhdWQiOiJodHRwczovL3Byb3NjaGVkdWxlci5wcm9tZXRyaWMuY29tIiwiaXNzIjoiaHR0cDovL2F1dGg0LnByb21ldHJpYy5jb20vYWRmcy9zZXJ2aWNlcy90cnVzdCIsImlhdCI6MTU4OTY1MjE2MSwiZXhwIjoxNTg5NjU1NzYxLCJyb2xlIjpbIlNjaGVkdWxpbmciLCJSZWdpc3RyYXRpb24iXSwiYXBwdHlwZSI6IkNvbmZpZGVudGlhbCIsImFwcGlkIjoiaHR0cHM6Ly9wcm9zY2hlZHVsZXIucHJvbWV0cmljLmNvbSIsImF1dGhtZXRob2QiOiJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvYXV0aGVudGljYXRpb25tZXRob2QvcGFzc3dvcmQiLCJhdXRoX3RpbWUiOiIyMDIwLTA1LTE2VDE4OjAyOjQxLjUzM1oiLCJ2ZXIiOiIxLjAifQ.Lez7m551qze9UEp8keYIO3A-74_Cz7pNG1uWu78KeaH6CU8TXwon_rlp_l0H0pnoY8EzU86Fvbae0bgBZqnHV_Jhbk66VbjZZRQA9LOezcnjFGS6j1Epz__WjNqAj2Y4fbCx0d6p56m_l-61-oxzUPfkEO8uBQuz5A499luKDJQKldshILzoXs9EjOfVqn2EVpoIXh0T9-SxwdMW19aaP2cnaSVECpTgaoAkPtgpXo-9mWRkAKxC9qwh9yp-xfmryh5b4-mcrKeugytrEaJL0zgwjG23dwuXXlJ4NHdefUIJxekqaxhHoREISRk8RnP_YCXMYeECr5BVPhL6GX9Hrg' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36' \
+  -H 'x-http-method-override: SEARCH' \
+  -H 'content-type: application/json' \
+  -H 'origin: https://proscheduler.prometric.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://proscheduler.prometric.com/scheduling/findAvailabilitytestcenter' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  --data-binary '[{"id":"jDIvheg1hE6tRak08WJV-w","testingAccommodations":[]}]' \
+  --compressed
