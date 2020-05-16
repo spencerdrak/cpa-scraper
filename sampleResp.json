@@ -1,0 +1,154 @@
+{
+    "totalResults": 5,
+    "results": [{
+        "href": "https://scheduling.prometric.com/api/v1/sites/availabilities/3514/",
+        "location": {
+            "timeZone": "Eastern Standard Time",
+            "timeZoneOffset": null,
+            "coordinates": [38.94929, -76.86756],
+            "directions": [{
+                "name": "Washington DC - Landover",
+                "generalMemo": " ",
+                "schedulingMemo": " ",
+                "direction": " "
+            }],
+            "distance": 20.98,
+            "address": {
+                "addressLine": ["4301 Garden City Dr", "Suite 203-Metro 400"],
+                "locality": "Hyattsville",
+                "adminDistrict": "MD",
+                "postalCode": "20785",
+                "country": "USA",
+                "formattedAddress": "4301 Garden City Dr, Suite 203-Metro 400, Hyattsville, MD, 20785, USA"
+            },
+            "contact": {
+                "phoneNumber": "443-923-8000",
+                "faxNumber": null
+            }
+        },
+        "availability": ["2020-06-17", "2020-06-18", "2020-06-23", "2020-06-24", "2020-06-25"],
+        "id": "3514",
+        "type": "Permanent",
+        "prefix": "APCN-"
+    }, {
+        "href": "https://scheduling.prometric.com/api/v1/sites/availabilities/0092/",
+        "location": {
+            "timeZone": "Eastern Standard Time",
+            "timeZoneOffset": null,
+            "coordinates": [39.39402, -76.57524],
+            "directions": [{
+                "name": "Baltimore - Towson",
+                "generalMemo": " ",
+                "schedulingMemo": " ",
+                "direction": " "
+            }],
+            "distance": 49.84,
+            "address": {
+                "addressLine": ["8601 LaSalle Road", "Suite 106"],
+                "locality": "Towson",
+                "adminDistrict": "MD",
+                "postalCode": "21286",
+                "country": "USA",
+                "formattedAddress": "8601 LaSalle Road, Suite 106, Towson, MD, 21286, USA"
+            },
+            "contact": {
+                "phoneNumber": "443-923-8000",
+                "faxNumber": null
+            }
+        },
+        "availability": ["2020-06-22"],
+        "id": "0092",
+        "type": "Permanent",
+        "prefix": "APCN-"
+    }, {
+        "href": "https://scheduling.prometric.com/api/v1/sites/availabilities/5112/",
+        "location": {
+            "timeZone": "Eastern Standard Time",
+            "timeZoneOffset": null,
+            "coordinates": [37.68812, -77.59474],
+            "directions": [{
+                "name": "Richmond - Glen Allen",
+                "generalMemo": " ",
+                "schedulingMemo": " ",
+                "direction": " "
+            }],
+            "distance": 85.93,
+            "address": {
+                "addressLine": ["11547 NUCKOLS ROAD", "SUITE B"],
+                "locality": "GLEN ALLEN",
+                "adminDistrict": "VA",
+                "postalCode": "23059",
+                "country": "USA",
+                "formattedAddress": "11547 NUCKOLS ROAD, SUITE B, GLEN ALLEN, VA, 23059, USA"
+            },
+            "contact": {
+                "phoneNumber": "443-923-8000",
+                "faxNumber": null
+            }
+        },
+        "availability": ["2020-06-16"],
+        "id": "5112",
+        "type": "Permanent",
+        "prefix": "APCN-"
+    }, {
+        "href": "https://scheduling.prometric.com/api/v1/sites/availabilities/1702/",
+        "location": {
+            "timeZone": "Eastern Standard Time",
+            "timeZoneOffset": null,
+            "coordinates": [40.10056, -75.41474],
+            "directions": [{
+                "name": "Philadelphia - King of Prussia",
+                "generalMemo": " ",
+                "schedulingMemo": " ",
+                "direction": " "
+            }],
+            "distance": 128.46,
+            "address": {
+                "addressLine": ["1017 W 9th Ave", "Suite D"],
+                "locality": "King of Prussia",
+                "adminDistrict": "PA",
+                "postalCode": "19406",
+                "country": "USA",
+                "formattedAddress": "1017 W 9th Ave, Suite D, King of Prussia, PA, 19406, USA"
+            },
+            "contact": {
+                "phoneNumber": "443-923-8000",
+                "faxNumber": null
+            }
+        },
+        "availability": ["2020-06-17"],
+        "id": "1702",
+        "type": "Permanent",
+        "prefix": "APCN-"
+    }, {
+        "href": "https://scheduling.prometric.com/api/v1/sites/availabilities/4709/",
+        "location": {
+            "timeZone": "Eastern Standard Time",
+            "timeZoneOffset": null,
+            "coordinates": [36.76672, -76.26029],
+            "directions": [{
+                "name": "Hampton Roads - Chesapeake",
+                "generalMemo": " ",
+                "schedulingMemo": " ",
+                "direction": " "
+            }],
+            "distance": 157.26,
+            "address": {
+                "addressLine": ["660 Independence Parkway", "Suite 300"],
+                "locality": "Chesapeake",
+                "adminDistrict": "VA",
+                "postalCode": "23320",
+                "country": "USA",
+                "formattedAddress": "660 Independence Parkway, Suite 300, Chesapeake, VA, 23320, USA"
+            },
+            "contact": {
+                "phoneNumber": "443-923-8000",
+                "faxNumber": null
+            }
+        },
+        "availability": ["2020-06-29"],
+        "id": "4709",
+        "type": "Permanent",
+        "prefix": "APCN-"
+    }]
+}

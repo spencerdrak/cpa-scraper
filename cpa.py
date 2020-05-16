@@ -2,6 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import json
+import smtplib
+import ssl
+
 
 key = ""
 
@@ -31,13 +34,12 @@ keyHeaders = {
 keyResponse = requests.request("GET", keyURL, headers=keyHeaders, data = keyPayload)
 
 print("Received response from " + keyURL + " with status code: " + str(keyResponse.status_code) + "...")
+if(keyResponse.status_code != 200):
+    raise Exception("Key Request Failed. Exception was: " + keyResponse.text)
 
 soup = BeautifulSoup(keyResponse.text, "html.parser")
 for tag in soup.findAll('script', text = re.compile('.*bootstrapApp.*')):
     key = tag.contents[0].split(",")[13].strip()[1:-1]
-    print("Found key: " + key)
-
-print('Bearer ' + key)
 
 url = "https://scheduling.prometric.com/api/v1/sites/availabilities/"
 
@@ -69,4 +71,28 @@ params = {
 
 response = requests.request("POST", url, headers=headers, data = payload, params = params)
 
-print(response.text.encode('utf8'))
+print("Received response from " + url + " with status code: " + str(response.status_code) + "...")
+if(response.status_code != 200):
+    raise Exception("Query Failed. Exception was: " + response.text)
+
+jsonObj = json.loads(response.text)
+
+locations = []
+
+if not jsonObj["totalResults"] == 0:
+    for testCenter in jsonObj["results"]:
+        data = {
+            "locality": testCenter["location"]["address"]["locality"],
+            "distance": testCenter["location"]["distance"],
+            "destinationCoordinates": testCenter["location"]["coordinates"],
+            "formattedAddress": testCenter["location"]["address"]["formattedAddress"],
+            "phoneNumber": testCenter["location"]["contact"]["phoneNumber"],
+            "availability": testCenter["availability"]
+        }
+        locations.append(data)
+
+if(len(locations) == 0):
+    print("No locations found.")
+else:
+    print("Locations:")
+    print(locations)
