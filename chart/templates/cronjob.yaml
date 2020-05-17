@@ -15,11 +15,19 @@ spec:
             - name: cpa-scraper-config-volume
               mountPath: "/app/config"
               readOnly: true
+            - name: cpa-scraper-creds-volume
+              mountPath: "/app/creds"
+              readOnly: true
             env:
             - name: CPA_SCAPER_CONFIG_PATH
               value: {{ .Values.configLocation | default "/app/config/cpa-scraper-config.yaml" }}
+            - name: CPA_SCAPER_CREDS_PATH
+              value: {{ .Values.credsLocation | default "/app/creds/cpa-scraper-creds.yaml" }}
           restartPolicy: OnFailure
           volumes:
           - name: cpa-scraper-config-volume
+            configMap:
+              name: {{ .Values.configCMName }}
+          - name: cpa-scraper-creds-volume
             secret:
-              secretName: {{ .Values.configSecretName }}
+              secretName: {{ .Values.credsSecretName }}

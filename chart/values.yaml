@@ -17,8 +17,10 @@ fullnameOverride: ""
 
 name: cpa-scraper
 
-schedule: "*/5 * * * *"
+schedule: "0 * * * *"
 
-configSecretName: cpa-scraper-config-yaml
+configCMName: cpa-scraper-config-yaml
+credsSecretName: cpa-scraper-creds-yaml
 
 configLocation: /app/config/cpa-scraper-config.yaml
+credsLocation: /app/creds/cpa-scraper-creds.yaml

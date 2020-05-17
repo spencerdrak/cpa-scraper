@@ -41,7 +41,7 @@ def getKey():
     
     return key
 
-def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, key):
+def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key):
     url = "https://scheduling.prometric.com/api/v1/sites/availabilities/"
 
     payload = "[{\"id\":\"jDIvheg1hE6tRak08WJV-w\",\"testingAccommodations\":[]}]"
@@ -90,7 +90,8 @@ def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, queryS
                 "phoneNumber": testCenter["location"]["contact"]["phoneNumber"],
                 "availability": ",\n".join(testCenter["availability"])
             }
-            locations.append(data)
+            if(data["distance"] <= maxDistance):
+                locations.append(data)
 
     if(len(locations) == 0):
         print("No locations found.")
@@ -105,15 +106,18 @@ def runScraper():
     queryCoords = "38.90071105957031,-77.2527084350586"
     queryTake = 5
     querySkip = 0
+    maxDistance = 15
 
     configs = getConfigs.getConfigs(os.getenv('CPA_SCAPER_CONFIG_PATH','./cpa-scraper-config.yaml'))
+    creds = getConfigs.getCreds(os.getenv('CPA_SCAPER_CREDS_PATH','./cpa-scraper-creds.yaml'))
     print(configs)
+    print(creds)
     key = getKey()
-    locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, key)
+    locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key)
     
     for recipient in configs["recipients"]:
         print("Now sending email to " + recipient + "...")
-        sendEmail.sendEmail(locations, recipient, configs["senderAddress"], configs["password"])
+        sendEmail.sendEmail(locations, recipient, creds["senderAddress"], creds["password"])
 
 if __name__ == "__main__":
     runScraper()

@@ -7,6 +7,7 @@ COPY src /app
 RUN pip install -r requirements.txt
 
 RUN mkdir -p /app/config
+RUN mkdir -p /app/creds
 
 ENTRYPOINT ["python"]
 CMD ["cpa.py"]

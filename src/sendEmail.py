@@ -66,11 +66,12 @@ if __name__ == "__main__":
     recipient = ""
     senderAddress = ""
     password = ""
-    with open("cpa-scraper-config.yaml", 'r') as stream:
-        config = yaml.safe_load(stream)
+    with open("cpa-scraper-config.yaml", 'r') as configStream, open("cpa-scraper-creds.yaml", 'r') as credsStream:
+        config = yaml.safe_load(configStream)
+        cred = yaml.safe_load(credsStream)
         recipient = config["cpaScraper"]["email"]["testRecipient"]
-        senderAddress = config["cpaScraper"]["email"]["senderAddress"]
-        password = config["cpaScraper"]["email"]["password"]
+        senderAddress = cred["cpaScraper"]["creds"]["senderAddress"]
+        password = cred["cpaScraper"]["creds"]["password"]
 
     locations = [{'locality': 'Hyattsville', 'distance': 20.98, 'destinationCoordinates': [38.94929, -76.86756], 'formattedAddress': '4301 Garden City Dr, Suite 203-Metro 400, Hyattsville, MD, 20785, USA', 'phoneNumber': '443-923-8000', 'availability': '2020-06-17,\n2020-06-18,\n2020-06-23,\n2020-06-24,\n2020-06-25'}, {'locality': 'Baltimore', 'distance': 44.93, 'destinationCoordinates': [39.27546, -76.56905], 'formattedAddress': '1501 South Clinton Street, 2nd Floor, Canton Crossing, Baltimore, MD, 21224, USA', 'phoneNumber': '443-923-8000', 'availability': '2020-06-27'}, {'locality': 'GLEN ALLEN', 'distance': 85.93, 'destinationCoordinates': [37.6881, -77.59478], 'formattedAddress': '11547 NUCKOLS ROAD, SUITE B, GLEN ALLEN, VA, 23059, USA', 'phoneNumber': '443-923-8000', 'availability': '2020-06-23'}, {'locality': 'GLEN ALLEN', 'distance': 85.93, 'destinationCoordinates': [37.68812, -77.59474], 'formattedAddress': '11547 NUCKOLS ROAD, SUITE B, GLEN ALLEN, VA, 23059, USA', 'phoneNumber': '443-923-8000', 'availability': '2020-06-19,\n2020-06-20'}, {'locality': 'HARRISBURG', 'distance': 102.39, 'destinationCoordinates': [40.338, -76.79143], 'formattedAddress': '1100 N. MOUNTAIN ROAD, HARRISBURG, PA, 17112, USA', 'phoneNumber': '443-923-8000', 'availability': '2020-06-26'}]
     sendEmail(locations, recipient, senderAddress, password)

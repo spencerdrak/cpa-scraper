@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cpa-scraper-config-yaml
+data:
+  cpa-scraper-config.yaml: |-
+    cpaScraper:
+      email:
+        testRecipient: spencerdrak@gmail.com
+        recipientList: 
+        - jrquigley@wpi.edu

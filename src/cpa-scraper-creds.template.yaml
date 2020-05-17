@@ -1,0 +1,4 @@
+cpaScraper:
+  creds:
+    senderAddress: whatever@example.com
+    password: 123password
