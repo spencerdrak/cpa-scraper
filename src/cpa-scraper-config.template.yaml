@@ -1,0 +1,8 @@
+cpaScraper:
+  email:
+    senderAddress: whatever@example.com
+    password: 123password
+    testRecipient: somebody@example.com
+    recipientList: 
+    - whatever@gmail.com
+    - whoever@outlook.com

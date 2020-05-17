@@ -1,0 +1,24 @@
+# Default values for cpa-scraper.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+enabled: true
+
+replicaCount: 1
+
+image:
+  repository: spencerdrak/cpa-scraper
+  tag: v1.0
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+name: cpa-scraper
+
+schedule: "*/5 * * * *"
+
+configSecretName: cpa-scraper-config-yaml
+
+configLocation: /app/config/cpa-scraper-config.yaml

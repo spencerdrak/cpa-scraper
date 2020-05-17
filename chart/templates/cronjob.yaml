@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: "{{ .Values.name }}-cronjob"
+spec:
+  schedule: "{{ .Values.schedule}}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: "{{ .Values.name }}-cronjob"
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            volumeMounts:
+            - name: cpa-scraper-config-volume
+              mountPath: "/app/config"
+              readOnly: true
+            env:
+            - name: CPA_SCAPER_CONFIG_PATH
+              value: {{ .Values.configLocation | default "/app/config/cpa-scraper-config.yaml" }}
+          restartPolicy: OnFailure
+          volumes:
+          - name: cpa-scraper-config-volume
+            secret:
+              secretName: {{ .Values.configSecretName }}

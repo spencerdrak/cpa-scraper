@@ -1,5 +1,0 @@
-cpaScraper:
-  email:
-    senderAddress: whatever@example.com
-    password: 123password
-    testRecipient: somebody@example.com
