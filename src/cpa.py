@@ -114,10 +114,10 @@ def runScraper():
     print(creds)
     key = getKey()
     locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key)
-    
-    for recipient in configs["recipients"]:
-        print("Now sending email to " + recipient + "...")
-        sendEmail.sendEmail(locations, recipient, creds["senderAddress"], creds["password"])
+    if not len(locations) == 0:
+        for recipient in configs["recipients"]:
+            print("Now sending email to " + recipient + "...")
+            sendEmail.sendEmail(locations, recipient, creds["senderAddress"], creds["password"])
 
 if __name__ == "__main__":
     runScraper()
