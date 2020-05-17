@@ -1,9 +1,9 @@
+#!/usr/bin/env python3
+
 import requests
 from bs4 import BeautifulSoup
 import re
 import json
-import smtplib
-import ssl
 
 
 key = ""
@@ -87,12 +87,12 @@ if not jsonObj["totalResults"] == 0:
             "destinationCoordinates": testCenter["location"]["coordinates"],
             "formattedAddress": testCenter["location"]["address"]["formattedAddress"],
             "phoneNumber": testCenter["location"]["contact"]["phoneNumber"],
-            "availability": testCenter["availability"]
+            "availability": ",\n".join(testCenter["availability"])
         }
         locations.append(data)
 
 if(len(locations) == 0):
     print("No locations found.")
 else:
-    print("Locations:")
+    print("Found " + str(len(locations)) + " locations...")
     print(locations)

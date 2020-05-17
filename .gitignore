@@ -1,1 +1,4 @@
 *.code-workspace
+cpa-scraper-config.yaml
+*.pyc
+__pychache__
