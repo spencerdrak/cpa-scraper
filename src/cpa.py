@@ -101,23 +101,25 @@ def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, queryS
     return locations
 
 def runScraper():
-    queryStartDate = "2020-06-15T00:00:00"
-    queryEndDate = "2020-06-29T00:00:00"
-    queryCoords = "38.90071105957031,-77.2527084350586"
     queryTake = 5
     querySkip = 0
-    maxDistance = 15
 
     configs = getConfigs.getConfigs(os.getenv('CPA_SCAPER_CONFIG_PATH','./cpa-scraper-config.yaml'))
     creds = getConfigs.getCreds(os.getenv('CPA_SCAPER_CREDS_PATH','./cpa-scraper-creds.yaml'))
     print(configs)
     print(creds)
-    key = getKey()
-    locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key)
-    if not len(locations) == 0:
-        for recipient in configs["recipients"]:
-            print("Now sending email to " + recipient + "...")
-            sendEmail.sendEmail(locations, recipient, creds["senderAddress"], creds["password"])
+
+    for user in configs["recipients"]:
+        queryStartDate = "{}T00:00:00".format(user["startDate"])
+        queryEndDate = "{}T00:00:00".format(user["endDate"])
+        queryCoords = "{},{}".format(str(user["latCenter"]),str(user["lonCenter"]))
+        maxDistance = int(user["maxDistance"])
+        email = user["email"]
+        key = getKey()
+        locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key)
+        if not len(locations) == 0:
+            print("Now sending email to " + email + "...")
+            sendEmail.sendEmail(locations, email, creds["senderAddress"], creds["password"])
 
 if __name__ == "__main__":
     runScraper()

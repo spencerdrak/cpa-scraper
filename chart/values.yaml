@@ -8,7 +8,7 @@ replicaCount: 1
 
 image:
   repository: spencerdrak/cpa-scraper
-  tag: v1.0
+  tag: v2.0
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -24,3 +24,17 @@ credsSecretName: cpa-scraper-creds-yaml
 
 configLocation: /app/config/cpa-scraper-config.yaml
 credsLocation: /app/creds/cpa-scraper-creds.yaml
+
+recipientList:
+- email: whatever@gmail.com
+  latCenter: 39
+  lonCenter: -77
+  maxDistance: 10
+  startDate: 2020-06-01
+  endDate: 2020-06-14
+- email: whoever@outlook.com
+  latCenter: 39
+  lonCenter: -77
+  maxDistance: 10
+  startDate: 2020-06-01
+  endDate: 2020-06-14

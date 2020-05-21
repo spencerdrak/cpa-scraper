@@ -3,3 +3,4 @@ cpa-scraper-config.yaml
 *.pyc
 __pychache__
 secrets
+localValues
