@@ -41,10 +41,12 @@ def getKey():
     
     return key
 
-def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key):
+def queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key, testID):
     url = "https://scheduling.prometric.com/api/v1/sites/availabilities/"
 
-    payload = "[{\"id\":\"jDIvheg1hE6tRak08WJV-w\",\"testingAccommodations\":[]}]"
+    payload = '[{"id":"' + testID + '","testingAccommodations":[]}]'
+    
+    #"[{\"id\":\"jDIvheg1hE6tRak08WJV-w\",\"testingAccommodations\":[]}]"
     headers = {
     'authority': 'proscheduler.prometric.com',
     'pragma': 'no-cache',
@@ -115,8 +117,9 @@ def runScraper():
         queryCoords = "{},{}".format(str(user["latCenter"]),str(user["lonCenter"]))
         maxDistance = int(user["maxDistance"])
         email = user["email"]
+        testID = user["testID"]
         key = getKey()
-        locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key)
+        locations = queryForResults(queryStartDate, queryEndDate, queryCoords, queryTake, querySkip, maxDistance, key, testID)
         if not len(locations) == 0:
             print("Now sending email to " + email + "...")
             sendEmail.sendEmail(locations, email, creds["senderAddress"], creds["password"])
